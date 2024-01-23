@@ -2,14 +2,8 @@ name: weekly-patch
 
 on:
   # for testing
-  push:
-    branches:
-      - main
-    paths:
-      - LICENSE
-
-  # schedule:
-  #   - cron: '0 0 */7 * *'
+  schedule:
+    - cron: '*/15 * * * *'
 
 jobs:
   weekly-patch:
