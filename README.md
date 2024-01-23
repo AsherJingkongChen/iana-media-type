@@ -30,15 +30,15 @@ curl -fsSL -o iana-media-type.json https://raw.githubusercontent.com/AsherJingko
 1. Import the json file `(Obtained from NPM)`
 
 ```javascript
-import { mediaTypes } from 'iana-media-type' assert { type: 'json' };
-console.log({ mediaTypes });
+import mediaTypes from 'iana-media-type' assert { type: 'json' };
+console.log({ mediaTypes, length: mediaTypes.length });
 ```
 
 2. Import the json file `(Obtained from GitHub)`
 
 ```javascript
-import { mediaTypes } from './iana-media-type.json' assert { type: 'json' };
-console.log({ mediaTypes });
+import mediaTypes from './iana-media-type.json' assert { type: 'json' };
+console.log({ mediaTypes, length: mediaTypes.length });
 ```
 
 ## Resources

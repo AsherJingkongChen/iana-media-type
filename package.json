@@ -46,8 +46,11 @@
   },
   "scripts": {
     "build": "run-s _build format",
-    "_build": "node ./script.js > ./index.json",
+    "_build": "node ./build.js > ./index.json",
     "format": "prettier --write ."
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "jsdom": "^24.0.0"
+  }
 }
