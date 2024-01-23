@@ -1,0 +1,30 @@
+name: npm-publish
+
+on:
+  push:
+    tags:
+      - v*.*.*
+
+jobs:
+  npm-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - id: actions-checkout
+        uses: actions/checkout@v4
+
+      - id: setup-node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org/
+
+      - id: install-dependencies
+        run: npm install
+
+      - id: build-package
+        run: npm run build
+
+      - id: publish-package
+        run: npm publish --ignore-scripts
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}

@@ -1,0 +1,48 @@
+name: weekly-patch
+
+on:
+  # for testing
+  push:
+    branches:
+      - main
+    paths:
+      - LICENSE
+
+  # schedule:
+  #   - cron: '0 0 */7 * *'
+
+jobs:
+  weekly-patch:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - id: actions-checkout
+        uses: actions/checkout@v4
+        with:
+          ssh-key: ${{ secrets.AUTO_COMMIT_KEY }}
+
+      - id: setup-git-config
+        run: |
+          git config user.name 'WeeklyPatch'
+          git config user.email '37398747+AsherJingkongChen@users.noreply.github.com'
+
+      - id: setup-node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org/
+
+      - id: install-dependencies
+        run: npm install
+
+      - id: build-package
+        run: npm run build
+
+      - id: patch-version
+        run: npm version patch
+
+      - id: push-changes
+        run: git push && git push --tags
