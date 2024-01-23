@@ -3,7 +3,7 @@ name: weekly-patch
 on:
   # for testing
   schedule:
-    - cron: '* */2 * * *'
+    - cron: '0 0 */7 * *'
 
 jobs:
   weekly-patch:
