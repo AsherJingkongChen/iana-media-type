@@ -1577,6 +1577,7 @@
   "application/yang-data+xml",
   "application/yang-patch+json",
   "application/yang-patch+xml",
+  "application/yang-sid+json",
   "application/yin+xml",
   "application/zip",
   "application/zlib",

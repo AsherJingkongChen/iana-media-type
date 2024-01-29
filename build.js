@@ -1,31 +1,50 @@
-import { JSDOM } from 'jsdom';
+(async function main(retries = 4) {
+  if (retries < 0) {
+    throw new Error('Failed to fetch media types');
+  }
 
-fetch('https://www.iana.org/assignments/media-types/media-types.xml')
-  .then((response) => response.arrayBuffer())
-  .then((data) => {
-    const { document } =
-      typeof process === 'undefined' ? window : new JSDOM(data).window;
+  try {
+    const response = await fetch(
+      'https://www.iana.org/assignments/media-types/media-types.xml',
+      {
+        redirect: 'follow',
+      },
+    );
+    const { ok, status, statusText } = response;
+    if (!ok) {
+      throw new Error(`HTTP ${status} ${statusText}`);
+    }
 
-    const body = document.getElementById('media-types');
+    const textData = await response.text();
+    const dom =
+      typeof DOMParser === 'undefined'
+        ? new (await import('jsdom')).JSDOM(textData).window.document
+        : new DOMParser().parseFromString(textData, 'application/xml');
+
     const mediaTypes = Array.from(
       new Set(
         (function* () {
-          for (const registry of body.getElementsByTagName('registry')) {
+          for (const registry of dom.querySelectorAll(
+            '#media-types registry',
+          )) {
             const title = registry.querySelector('title')?.textContent;
-            if (title) {
-              for (const record of registry.getElementsByTagName('record')) {
-                yield record.querySelector('file[type=template]')
-                  ?.textContent ??
-                  `${title}/${record.querySelector('name').textContent}`;
-              }
+            if (!title) {
+              continue;
+            }
+            for (const record of registry.getElementsByTagName('record')) {
+              yield record.querySelector('file[type=template]')?.textContent ??
+                `${title}/${record.querySelector('name').textContent}`;
             }
           }
         })(),
       ),
     ).sort();
 
-    return mediaTypes;
-  })
-  .then((output) => {
+    const output = mediaTypes;
     console.log(JSON.stringify(output, undefined, 2));
-  });
+  } catch (error) {
+    console.error(error);
+    console.warn(`There are ${retries} retries left...\n`);
+    main(--retries);
+  }
+})();
