@@ -2,8 +2,11 @@ name: weekly-patch
 
 on:
   # for testing
-  schedule:
-    - cron: '0 0 */7 * *'
+  push:
+    paths:
+      - .github/workflows/weekly-patch.yml
+  # schedule:
+  #   - cron: '0 0 */7 * *'
 
 jobs:
   weekly-patch:
@@ -38,5 +41,5 @@ jobs:
       - id: patch-version
         run: npm version patch
 
-      - id: push-changes
-        run: git push && git push --tags
+      # - id: push-changes
+      #   run: git push && git push --tags
