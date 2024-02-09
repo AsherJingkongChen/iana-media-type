@@ -2,7 +2,7 @@ name: weekly-patch
 
 on:
   schedule:
-    - cron: '30 3 6/7 * *'
+    - cron: '0 6 5/7 * *'
 
 jobs:
   weekly-patch:
