@@ -38,6 +38,11 @@ jobs:
       - id: build-package
         run: npm run build
 
+      - id: commit-changes
+        run: |
+          git add .
+          git commit -m '(patch): weekly patch'
+
       - id: patch-version
         run: npm version patch
 
