@@ -19,7 +19,7 @@ We've provided a simple API for you. You can obtain `iana-media-type` from NPM. 
 | [pnpm](https://pnpm.io/)      | `pnpm install iana-media-type` | `pnpm i iana-media-type`   |
 | [yarn](https://yarnpkg.com/)  | `yarn add iana-media-type`     | `yarn add iana-media-type` |
 
-- `iana-media-type` provides a JSON file on the GitHub. You can download it and use it in your project.
+- `iana-media-type` provides [a JSON file on the GitHub](https://raw.githubusercontent.com/AsherJingkongChen/iana-media-type/main/index.json). You can download it and use it in your project.
 
 ```bash
 curl -fsSL -o iana-media-type.json https://raw.githubusercontent.com/AsherJingkongChen/iana-media-type/main/index.json
