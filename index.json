@@ -42,6 +42,7 @@
   "application/TETRA_ISI",
   "application/ace+cbor",
   "application/ace+json",
+  "application/ace-groupcomm+cbor",
   "application/activemessage",
   "application/activity+json",
   "application/aif+cbor",
