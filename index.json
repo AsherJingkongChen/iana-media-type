@@ -376,6 +376,7 @@
   "application/rpki-manifest",
   "application/rpki-publication",
   "application/rpki-roa",
+  "application/rpki-signed-tal",
   "application/rpki-updown",
   "application/rtf",
   "application/rtploopback",
