@@ -436,6 +436,7 @@
   "application/srgs",
   "application/srgs+xml",
   "application/sru+xml",
+  "application/sslkeylogfile",
   "application/ssml+xml",
   "application/stix+json",
   "application/stratum",
