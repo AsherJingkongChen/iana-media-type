@@ -351,6 +351,7 @@
   "application/prs.implied-object+json-seq",
   "application/prs.implied-object+yaml",
   "application/prs.implied-structure",
+  "application/prs.mayfile",
   "application/prs.nprend",
   "application/prs.plucker",
   "application/prs.rdf-xml-crypt",
