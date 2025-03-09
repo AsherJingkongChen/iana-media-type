@@ -91,5 +91,5 @@ You may encounter some problems during development and deployment.
 
 Please read the following notes carefully.
 
-1. We only provide a JSON file, so you won't evaluate this module.
+1. We provide the JSON file for backward compatibility and for situations where you don't want to evaluate code.
 2. We are NOT IANA or IETF official. We are just a group of open-source developers.
