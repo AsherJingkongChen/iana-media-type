@@ -21,7 +21,7 @@ try {
     };
     if (previous?.lastModified) {
       init.headers = new Headers({
-        'if-modified-since': previous?.lastModified,
+        'if-modified-since': previous.lastModified.toUTCString(),
       });
     }
     const response = await fetch(
@@ -29,9 +29,8 @@ try {
       init,
     );
     const { ok, status, statusText } = response;
-    const statusTextPretty = `HTTP ${status} ${statusText}`;
-    if (!ok || status === 304) {
-      throw new Error(statusTextPretty);
+    if (!ok) {
+      throw new Error(`HTTP ${status} ${statusText}`, { cause: 'no-change' });
     }
 
     const textData = await response.text();
@@ -64,7 +63,7 @@ try {
     const lastModified = response.headers.get('last-modified') || null;
     const updated = new Date().toUTCString();
     if (hash === previous?.hash) {
-      throw new Error('No relevant changes detected.');
+      throw new Error('No relevant changes', { cause: 'no-change' });
     }
 
     fs.writeFileSync('index.json', index);
@@ -81,6 +80,9 @@ export default ${index};
 `,
     );
   } catch (error) {
+    if (error.cause === 'no-change') {
+      throw error;
+    }
     retries -= 1;
     console.error(error);
     console.warn(`There are ${retries} retries left...\n`);
