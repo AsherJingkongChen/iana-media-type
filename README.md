@@ -41,17 +41,17 @@ import mediaTypes from 'iana-media-type' assert { type: 'json' };
 console.log({ mediaTypes, length: mediaTypes.length });
 ```
 
-3. Import the json file `(Obtained from GitHub)` in the browser or deno:
-
-```javascript
-import mediaTypes from 'https://raw.githubusercontent.com/AsherJingkongChen/iana-media-type/main/index.json' with { type: 'json' };
-console.log({ mediaTypes, length: mediaTypes.length });
-```
-
-4. Import the json file `(Obtained from NPM)` on node 18 or 20+:
+3. Import the json file `(Obtained from NPM)` on node 20+:
 
 ```javascript
 import mediaTypes from 'iana-media-type' with { type: 'json' };
+console.log({ mediaTypes, length: mediaTypes.length });
+```
+
+4. Import the json file `(Obtained from GitHub)` in the browser or deno:
+
+```javascript
+import mediaTypes from 'https://raw.githubusercontent.com/AsherJingkongChen/iana-media-type/main/index.json' with { type: 'json' };
 console.log({ mediaTypes, length: mediaTypes.length });
 ```
 
