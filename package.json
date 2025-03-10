@@ -16,13 +16,16 @@
       "default": "./index.json",
       "import": "./index.json",
       "require": "./index.json"
+    },
+    "./index.js": {
+      "import": "./index.js"
     }
   },
   "files": [
     "LICENSE",
     "README.md",
-    "dist",
-    "index.json"
+    "index.json",
+    "index.js"
   ],
   "homepage": "https://github.com/AsherJingkongChen/iana-media-type/",
   "keywords": [
@@ -39,15 +42,15 @@
     "json"
   ],
   "license": "MIT",
-  "main": "./index.json",
-  "module": "./index.json",
+  "main": "./index.js",
+  "module": "./index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/AsherJingkongChen/iana-media-type.git"
   },
   "scripts": {
     "build": "run-s _build format",
-    "_build": "node ./build.js > ./index.json",
+    "_build": "node ./build.js",
     "format": "prettier --write ."
   },
   "type": "module"
