@@ -30,7 +30,8 @@ try {
     );
     const { ok, status, statusText } = response;
     if (!ok) {
-      throw new Error(`HTTP ${status} ${statusText}`, { cause: 'no-change' });
+      const cause = status === 304 ? 'no-change' : undefined;
+      throw new Error(`HTTP ${status} ${statusText}`, { cause });
     }
 
     const textData = await response.text();
