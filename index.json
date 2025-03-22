@@ -145,6 +145,7 @@
   "application/dicom",
   "application/dicom+json",
   "application/dicom+xml",
+  "application/did",
   "application/dns",
   "application/dns+json",
   "application/dns-message",
