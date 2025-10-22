@@ -2,6 +2,8 @@
   "application/1d-interleaved-parityfec",
   "application/3gpdash-qoe-report+xml",
   "application/3gpp-ims+xml",
+  "application/3gpp-mbs-object-manifest+json",
+  "application/3gpp-mbs-user-service-descriptions+json",
   "application/3gppHal+json",
   "application/3gppHalForms+json",
   "application/A2L",
