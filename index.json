@@ -71,6 +71,8 @@
   "application/alto-updatestreamparams+json",
   "application/andrew-inset",
   "application/applefile",
+  "application/asyncapi+json",
+  "application/asyncapi+yaml",
   "application/at+jwt",
   "application/atom+xml",
   "application/atomcat+xml",
