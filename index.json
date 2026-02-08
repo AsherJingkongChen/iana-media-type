@@ -1824,6 +1824,7 @@
   "audio/rtx",
   "audio/scip",
   "audio/sofa",
+  "audio/soundfont",
   "audio/sp-midi",
   "audio/speex",
   "audio/t140c",
