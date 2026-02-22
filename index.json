@@ -44,6 +44,7 @@
   "application/SGML",
   "application/ST2110-41",
   "application/TETRA_ISI",
+  "application/aas+zip",
   "application/ace+cbor",
   "application/ace+json",
   "application/ace-groupcomm+cbor",
