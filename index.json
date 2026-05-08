@@ -118,6 +118,7 @@
   "application/cid-edhoc+cbor-seq",
   "application/city+json",
   "application/city+json-seq",
+  "application/client-authentication+jwt",
   "application/clr",
   "application/clue+xml",
   "application/clue_info+xml",
