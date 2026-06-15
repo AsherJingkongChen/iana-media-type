@@ -490,6 +490,8 @@
   "application/sru+xml",
   "application/sslkeylogfile",
   "application/ssml+xml",
+  "application/statuslist+cwt",
+  "application/statuslist+jwt",
   "application/stix+json",
   "application/stratum",
   "application/suit-envelope+cose",
